@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link href="src/styles.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <br />
+      <form id="form">
+        <input
+          type="text"
+          placeholder="Enter a city"
+          autocomplete="off"
+          id="city"
+        />
+        <input type="submit" value="Search" />
+      </form>
+      <br />
+
+      <div class="row">
+        <div class="mainInfo">
+          <div class="city">York</div>
+          <div class="time">18:06</div>
+          <div class="date">Tuesday 7th September 2021</div>
+          <div>
+            <span class="averageTemp"> 18 </span>
+            <span class="units">
+              <a href="#" id="celsius" class="link">°C</a>
+              <a href="#" id="fahrenheit" class="link">°F</a>
+            </span>
+          </div>
+          <div class="raining">Chance of Rain: 30%</div>
+          <div class="wind">Wind Speed: 30mph</div>
+          <div class="precipitation">Precipitation: 30%</div>
+          <div class="emoji">🌤</div>
+        </div>
+      </div>
+      <button class="button">Get Current Location</button>
+      <br />
+
+      <div class="row">
+        <div class="col">
+          Wednesday
+          <div class="temp">18</div>
+          <div class="rain">Chance of Rain: 25%</div>
+          <div class="emoji">🌤</div>
+        </div>
+        <div class="col">
+          Thursday
+          <div class="temp">24</div>
+          <div class="rain">Chance of Rain: 10%</div>
+          <div class="emoji">☀️</div>
+        </div>
+        <div class="col">
+          Friday
+          <div class="temp">15</div>
+          <div class="rain">Chance of Rain: 100%</div>
+          <div class="emoji">🌧</div>
+        </div>
+        <div class="col">
+          Saturday
+          <div class="temp">17</div>
+          <div class="rain">Chance of Rain: 50%</div>
+          <div class="emoji">🌦</div>
+        </div>
+        <div class="col">
+          Sunday
+          <div class="temp">19</div>
+          <div class="rain">Chance of Rain: 25%</div>
+          <div class="emoji">🌤</div>
+        </div>
+        <div class="col">
+          Monday
+          <div class="temp">13</div>
+          <div class="rain">Chance of Rain: 80%</div>
+          <div class="emoji">🌦</div>
+        </div>
+      </div>
+
+      <footer>Coded By Jenna Winch</footer>
+    </div>
+    <script src="src/app.js"></script>
+  </body>
+</html>
