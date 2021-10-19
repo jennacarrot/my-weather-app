@@ -99,7 +99,7 @@ function getCurrentPosition(response) {
   console.log(response.data.main.temp);
   let temperatureAlert = Math.round(response.data.main.temp);
   console.log(temperatureAlert);
-  alert(`It is ${temperatureAlert} at your current location `);
+  alert(`It is ${temperatureAlert}°C at your current location `);
 }
 function getLocation(event) {
   event.preventDefault();
