@@ -47,15 +47,15 @@ function showWeather(response) {
   let temperatureElement = document.querySelector(".averageTemp");
   temperatureElement.innerHTML = `${temperature}C°`;
   console.log(response.data.main.pressure);
-  let pressure = Math.round(response.data.main.pressure);
+  let pressure = response.data.main.pressure;
   let pressureElement = document.querySelector(".pressure");
   pressureElement.innerHTML = `Pressure: ${pressure}`;
   console.log(reponse.data.main.humidity);
-  let humidity = Math.round(response.data.main.humidity);
+  let humidity = response.data.main.humidity;
   let humidityElement = document.querySelector(".humidity");
   humidityElement.innerHTML = `Humidity: ${humidity}`;
   console.log(response.data.wind.speed);
-  let windSpeed = Math.round(response.data.wind.speed);
+  let windSpeed = response.data.wind.speed;
   let windElement = document.querySelector(".wind");
   windElement.innerHTML = `Wind Speed: ${windSpeed}`;
 
