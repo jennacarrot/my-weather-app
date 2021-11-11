@@ -27,8 +27,8 @@ button:hover {
   border: 7px solid rgba(136, 93, 241, 0.5);
   border-radius: 22px;
   padding: 10px;
-  margin-bottom: 33px;
-  margin-top: 20px;
+  margin-bottom: 38px;
+  margin-top: 10px;
 }
 
 .col {
@@ -38,9 +38,13 @@ button:hover {
 }
 
 .emoji {
-  font-size: 40px;
+  font-size: 35px;
 }
 
 .link {
   color: #6802bf;
+}
+
+.icon {
+  font-size: 20px;
 }

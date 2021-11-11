@@ -50,14 +50,20 @@ function showWeather(response) {
   let pressure = response.data.main.pressure;
   let pressureElement = document.querySelector(".pressure");
   pressureElement.innerHTML = `Pressure: ${pressure}`;
-  console.log(reponse.data.main.humidity);
+  console.log(response.data.main.humidity);
   let humidity = response.data.main.humidity;
   let humidityElement = document.querySelector(".humidity");
-  humidityElement.innerHTML = `Humidity: ${humidity}`;
+  humidityElement.innerHTML = `Humidity: ${humidity}%`;
   console.log(response.data.wind.speed);
-  let windSpeed = response.data.wind.speed;
+  let windSpeed = Math.round(response.data.wind.speed);
   let windElement = document.querySelector(".wind");
-  windElement.innerHTML = `Wind Speed: ${windSpeed}`;
+  windElement.innerHTML = `Wind Speed: ${windSpeed} mph`;
+  console.log(response.data.weather.description);
+  let description = response.data.weather[0].description;
+  let descriptionElement = document.querySelector(".description");
+  descriptionElement.innerHTML = `Description: ${description} `;
+  let icon = response.data.weather.icon;
+  let iconElement = document.querySelector(".mainIcon");
 
   function changeToCelsius(event) {
     event.preventDefault();
