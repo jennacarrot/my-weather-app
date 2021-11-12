@@ -26,11 +26,14 @@ button:hover {
   background-position: center;
 }
 .mainInfo {
-  border: 7px solid rgba(136, 93, 241, 0.5);
+  border: 7px solid;
   border-radius: 22px;
   padding: 10px;
   margin-bottom: 38px;
   margin-top: 10px;
+  font-family: "Yuji Syuku", serif;
+  background: linear-gradient(-225deg, #65379b 0%, #886aea 53%, #6457c6 100%);
+  color: #bae8e8;
 }
 
 .col {
@@ -49,4 +52,12 @@ button:hover {
 
 .icon {
   font-size: 20px;
+}
+
+.forecast {
+  background: linear-gradient(
+    171.8deg,
+    rgb(238, 156, 167) 13.8%,
+    rgb(246, 204, 162) 82.6%
+  );
 }
