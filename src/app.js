@@ -1,5 +1,26 @@
 let now = new Date();
 let hour = now.getHours();
+
+function getImage(now) {
+  if (now < 12) {
+    document.querySelector(
+      ".background"
+    ).style.backgroundImage = `url("images/day.jpg")`;
+  } else {
+    if (now > 20) {
+      document.querySelector(
+        ".background"
+      ).style.backgroundImage = `url("images/night.jpg")`;
+    } else {
+      document.querySelector(
+        ".background"
+      ).style.backgroundImage = `url("images/dusk.jpg")`;
+    }
+  }
+}
+
+getImage();
+
 let minute = now.getMinutes();
 
 let time = document.querySelector(".time");
