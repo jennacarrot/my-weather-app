@@ -21,7 +21,7 @@ function getImage(now) {
 
 getImage();
 
-let minute = now.getMinutes();
+let minute = ("0" + now.getMinutes()).slice(-2);
 
 let time = document.querySelector(".time");
 
@@ -83,8 +83,6 @@ function showWeather(response) {
   let description = response.data.weather[0].description;
   let descriptionElement = document.querySelector(".description");
   descriptionElement.innerHTML = `Description: ${description} `;
-  let icon = response.data.weather.icon;
-  let iconElement = document.querySelector(".mainIcon");
 
   function changeToCelsius(event) {
     event.preventDefault();
