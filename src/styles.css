@@ -4,21 +4,20 @@ footer {
   color: #e94822;
   margin-top: 30px;
   font-family: "Amatic SC", cursive;
+  text-shadow: 5px 4px 10px rgba(245, 92, 16, 0.6);
 }
 
 button {
-  border-radius: 10px;
-  border-color: #6802bf;
-  background-color: white;
+  font-family: "Manrope", sans-serif;
   padding: 10px;
   margin-bottom: 20px;
-  font-size: 20px;
-  color: green;
-  box-shadow: 20px black;
+  border: 15px groove rgba(93, 241, 199, 0.5);
+  border-radius: 27px;
 }
 button:hover {
   cursor: pointer;
-  background-color: pink;
+  background-color: black;
+  color: white;
 }
 
 .background {
@@ -40,8 +39,14 @@ button:hover {
 
 .col {
   height: 175px;
-  border: 3px solid rgba(241, 93, 183, 0.2);
+  border: 3px solid #4e4e6a;
   width: 50px;
+  background: linear-gradient(
+    171.8deg,
+    rgb(238, 156, 167) 13.8%,
+    rgb(246, 204, 162) 82.6%
+  );
+  font-family: "Manrope", sans-serif;
 }
 
 .emoji {
@@ -51,14 +56,6 @@ button:hover {
   font-size: 20px;
 }
 
-.forecast {
-  background: linear-gradient(
-    171.8deg,
-    rgb(238, 156, 167) 13.8%,
-    rgb(246, 204, 162) 82.6%
-  );
-  font-family: "Manrope", sans-serif;
-}
 .github {
   color: #ff0000;
 }
