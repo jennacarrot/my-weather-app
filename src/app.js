@@ -83,6 +83,13 @@ function showWeather(response) {
   let description = response.data.weather[0].description;
   let descriptionElement = document.querySelector(".description");
   descriptionElement.innerHTML = `Description: ${description} `;
+  let iconElement = document.querySelector("#mainIcon");
+  let icon = response.data.weather[0].icon;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", `${description}`);
 
   function changeToCelsius(event) {
     event.preventDefault();
