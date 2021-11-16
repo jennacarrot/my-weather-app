@@ -78,7 +78,7 @@ function showWeather(response) {
   console.log(response.data.wind.speed);
   let windSpeed = Math.round(response.data.wind.speed);
   let windElement = document.querySelector(".wind");
-  windElement.innerHTML = `Wind Speed: ${windSpeed} mph`;
+  windElement.innerHTML = `Wind Speed: ${windSpeed} km/h`;
   console.log(response.data.weather.description);
   let description = response.data.weather[0].description;
   let descriptionElement = document.querySelector(".description");
@@ -94,17 +94,21 @@ function showWeather(response) {
   function changeToCelsius(event) {
     event.preventDefault();
     let temperatureCelsius = document.querySelector(".averageTemp");
-    temperatureCelsius.innerHTML = `${temperature}`;
+    celsius.classList.add("active");
+    fahrenheit.classList.remove("active");
+    temperatureCelsius.innerHTML = `${temperature}°C`;
   }
 
   let celsius = document.querySelector("#celsius");
   celsius.addEventListener("click", changeToCelsius);
 
   function changeToFahrenheit(event) {
-    let temperatureF = (temperature * 9.0) / 5.0 + 32.0;
+    let temperatureF = Math.round((temperature * 9.0) / 5.0 + 32.0);
     event.preventDefault();
     let temperatureFahreneit = document.querySelector(".averageTemp");
-    temperatureFahreneit.innerHTML = `${temperatureF}F°`;
+    celsius.classList.remove("active");
+    fahrenheit.classList.add("active");
+    temperatureFahreneit.innerHTML = `${temperatureF}°F`;
   }
 
   let fahrenheit = document.querySelector("#fahrenheit");
