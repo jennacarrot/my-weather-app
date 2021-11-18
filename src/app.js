@@ -1,13 +1,13 @@
 let now = new Date();
 let hour = now.getHours();
 
-function getImage(now) {
-  if (now < 12) {
+function getImage(hour) {
+  if (hour < 12) {
     document.querySelector(
       ".background"
     ).style.backgroundImage = `url("images/day.jpg")`;
   } else {
-    if (now > 20) {
+    if (hour > 20) {
       document.querySelector(
         ".background"
       ).style.backgroundImage = `url("images/night.jpg")`;
@@ -61,6 +61,29 @@ let date = now.getDate();
 let fullDate = document.querySelector(".date");
 
 fullDate.innerHTML = `${day} ${date} ${month} ${year}`;
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col">
+            <div class="weather-forecast-date">Wed</div>
+            <img src="" alt="" class="forecastIcon" />
+            <div class="weather-forecast-temperatures">
+              <span class="weather-forecast-temperature-max"> 20° </span>
+              <span class="weather-forecast-temperature-min"> 5° </span>
+            </div>
+          </div>
+          `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 
 function showWeather(response) {
   console.log(response.data.main.temp);
@@ -155,3 +178,5 @@ function getLocation(event) {
 
 let currentLocation = document.querySelector(".button");
 currentLocation.addEventListener("click", getLocation);
+
+displayForecast();
