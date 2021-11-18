@@ -63,6 +63,7 @@ let fullDate = document.querySelector(".date");
 fullDate.innerHTML = `${day} ${date} ${month} ${year}`;
 
 function displayForecast() {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
@@ -83,6 +84,14 @@ function displayForecast() {
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+
+function getCoords(coordinates) {
+  console.log(coordinates);
+  let apiKey = "856ea507b57a7ec288937b5bb2dfbef2";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&unit=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function showWeather(response) {
@@ -113,6 +122,8 @@ function showWeather(response) {
     `http://openweathermap.org/img/wn/${icon}@2x.png`
   );
   iconElement.setAttribute("alt", `${description}`);
+
+  getCoords(response.data.coord);
 
   function changeToCelsius(event) {
     event.preventDefault();
@@ -178,5 +189,3 @@ function getLocation(event) {
 
 let currentLocation = document.querySelector(".button");
 currentLocation.addEventListener("click", getLocation);
-
-displayForecast();
