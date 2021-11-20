@@ -107,7 +107,7 @@ function displayForecast(response) {
             <div class="weather-forecast-date">${formatTime(
               forecastDay.dt
             )}</div>
-            <div class="weather-forecast-main>${
+            <div class="weather-forecast-main">${
               forecastDay.weather[0].main
             }</div>
             <img src="http://openweathermap.org/img/wn/${
@@ -123,7 +123,6 @@ function displayForecast(response) {
               )} </span>
             </div>
           </div>
-        </div>
         `;
     }
   });
