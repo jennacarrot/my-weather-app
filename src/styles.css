@@ -65,4 +65,9 @@ button:hover {
 
 .weather-forecast-temperature-min {
   color: #4e4e6a;
+  padding: 5px;
+}
+
+.weather-forecast-temperature-max {
+  padding: 5px;
 }
