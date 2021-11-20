@@ -85,6 +85,8 @@ function getForecast() {
   forecastElement.innerHTML = forecastHTML;
 }
 
+getForecast();
+
 function formatTime(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
@@ -130,8 +132,6 @@ function displayForecast(response) {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
-
-getForecast();
 
 function getCoords(coordinates) {
   console.log(coordinates);
