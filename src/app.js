@@ -62,6 +62,29 @@ let fullDate = document.querySelector(".date");
 
 fullDate.innerHTML = `${day} ${date} ${month} ${year}`;
 
+function getForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+
+  forecastHTML =
+    forecastHTML +
+    `<div class="col">
+            <div class="weather-forecast-date"></div>
+            <div class="weather-forecast-main></div>
+            <img src="http://openweathermap.org/img/wn/@2x.png" alt="" class="forecastIcon" />
+            <div class="weather-forecast-temperatures">
+              <span class="weather-forecast-temperature-max"> </span>
+              <span class="weather-forecast-temperature-min"></span>
+            </div>
+          </div>
+        </div>
+        `;
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function formatTime(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
@@ -99,13 +122,16 @@ function displayForecast(response) {
               )} </span>
             </div>
           </div>
-          `;
+        </div>
+        `;
     }
   });
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
+
+getForecast();
 
 function getCoords(coordinates) {
   console.log(coordinates);
