@@ -26,6 +26,14 @@ button:hover {
   background-position: center;
 }
 
+.units a {
+  pointer-events: auto;
+}
+
+.units a.active {
+  pointer-events: none;
+}
+
 .mainInfo {
   border: 5px double #f57b51;
   border-radius: 18px;
