@@ -159,7 +159,6 @@ function findPosition(position) {
 }
 
 function getLocation(event) {
-  event.preventDefault();
   navigator.geolocation.getCurrentPosition(findPosition);
 }
 
