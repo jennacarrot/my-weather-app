@@ -6,16 +6,14 @@ function getImage(hour) {
     document.querySelector(
       ".background"
     ).style.backgroundImage = `url("images/day.jpg")`;
+  } else if (hour > 20) {
+    document.querySelector(
+      ".background"
+    ).style.backgroundImage = `url("images/night.jpg")`;
   } else {
-    if (hour > 20) {
-      document.querySelector(
-        ".background"
-      ).style.backgroundImage = `url("images/night.jpg")`;
-    } else {
-      document.querySelector(
-        ".background"
-      ).style.backgroundImage = `url("images/dusk.jpg")`;
-    }
+    document.querySelector(
+      ".background"
+    ).style.backgroundImage = `url("images/dusk.jpg")`;
   }
 }
 
