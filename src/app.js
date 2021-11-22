@@ -213,6 +213,14 @@ function citySearch(event) {
 let city = document.querySelector("#search-form");
 city.addEventListener("submit", citySearch);
 
+function formatCurrentTime(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
 function displayCurrentForecast() {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
@@ -224,7 +232,7 @@ function displayCurrentForecast() {
       forecastHTML =
         forecastHTML +
         `<div class="col">
-            <div class="weather-forecast-date">${formatTime(
+            <div class="weather-forecast-date">${formatCurrentTime(
               forecastDay.dt
             )}</div>
             <div class="weather-forecast-main">${
