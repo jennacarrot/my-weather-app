@@ -62,6 +62,31 @@ let fullDate = document.querySelector(".date");
 
 fullDate.innerHTML = `${day} ${date} ${month} ${year}`;
 
+function getForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+
+  forecastHTML =
+    forecastHTML +
+    `<div class="col">
+            <div class="weather-forecast-date"></div>
+            <div class="weather-forecast-main></div>
+            <img src="http://openweathermap.org/img/wn/@2x.png" alt="" class="forecastIcon" />
+            <div class="weather-forecast-temperatures">
+              <span class="weather-forecast-temperature-max"> </span>
+              <span class="weather-forecast-temperature-min"></span>
+            </div>
+          </div>
+        </div>
+        `;
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+getForecast();
+
 function formatCurrentTime(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
@@ -70,7 +95,7 @@ function formatCurrentTime(timestamp) {
   return days[day];
 }
 
-function displayCurrentForecast() {
+function displayCurrentForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
 
@@ -117,6 +142,9 @@ function getCurrentCoordinates(coordinates) {
 }
 
 function getCurrentPosition(response) {
+  let newCity = document.querySelector(".city");
+  let cityName = response.name;
+  newCity.innerHTML = `${cityName}`;
   console.log(response.data.main.temp);
   let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector(".averageTemp");
@@ -145,7 +173,29 @@ function getCurrentPosition(response) {
   );
   iconElement.setAttribute("alt", `${description}`);
 
-  getCurrentCoordinates();
+  getCurrentCoordinates(response.data.coord);
+  function changeToCelsius(event) {
+    event.preventDefault();
+    let temperatureCelsius = document.querySelector(".averageTemp");
+    celsius.classList.add("active");
+    fahrenheit.classList.remove("active");
+    temperatureCelsius.innerHTML = `${temperature}°C`;
+  }
+
+  let celsius = document.querySelector("#celsius");
+  celsius.addEventListener("click", changeToCelsius);
+
+  function changeToFahrenheit(event) {
+    let temperatureF = Math.round((temperature * 9.0) / 5.0 + 32.0);
+    event.preventDefault();
+    let temperatureFahreneit = document.querySelector(".averageTemp");
+    celsius.classList.remove("active");
+    fahrenheit.classList.add("active");
+    temperatureFahreneit.innerHTML = `${temperatureF}°F`;
+  }
+
+  let fahrenheit = document.querySelector("#fahrenheit");
+  fahrenheit.addEventListener("click", changeToFahrenheit);
 }
 
 function findPosition(position) {
@@ -158,7 +208,7 @@ function findPosition(position) {
   axios.get(apiUrlLocation).then(getCurrentPosition);
 }
 
-function getLocation(event) {
+function getLocation() {
   navigator.geolocation.getCurrentPosition(findPosition);
 }
 
@@ -222,7 +272,7 @@ function showWeather(response) {
   console.log(response.data.main.temp);
   let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector(".averageTemp");
-  temperatureElement.innerHTML = `${temperature}C°`;
+  temperatureElement.innerHTML = `${temperature}°C`;
   console.log(response.data.main.pressure);
   let pressure = response.data.main.pressure;
   let pressureElement = document.querySelector(".pressure");
@@ -285,6 +335,8 @@ function citySearch(event) {
   } else {
     newCityName.innerHTML = "Please type a city below.";
   }
+  celsius.classList.add("active");
+  fahrenheit.classList.remove("active");
 }
 
 let city = document.querySelector("#search-form");
