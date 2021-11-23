@@ -6,7 +6,7 @@ function getImage(hour) {
     document.querySelector(
       ".background"
     ).style.backgroundImage = `url("images/day.jpg")`;
-  } else if (hour > 20) {
+  } else if (hour > 19) {
     document.querySelector(
       ".background"
     ).style.backgroundImage = `url("images/night.jpg")`;
