@@ -17,7 +17,7 @@ function getImage(hour) {
   }
 }
 
-getImage();
+getImage(hour);
 
 let minute = ("0" + now.getMinutes()).slice(-2);
 
@@ -132,10 +132,9 @@ function displayCurrentForecast(response) {
 }
 
 function getCurrentCoordinates(coordinates) {
-  console.log(coordinates);
   let apiKey = "856ea507b57a7ec288937b5bb2dfbef2";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-  console.log(apiUrl);
+
   axios.get(apiUrl).then(displayCurrentForecast);
 }
 
@@ -143,23 +142,23 @@ function getCurrentPosition(response) {
   let newCity = document.querySelector(".city");
   let cityName = response.name;
   newCity.innerHTML = `${cityName}`;
-  console.log(response.data.main.temp);
+
   let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector(".averageTemp");
-  temperatureElement.innerHTML = `${temperature}C°`;
-  console.log(response.data.main.pressure);
+  temperatureElement.innerHTML = `${temperature}°C`;
+
   let pressure = response.data.main.pressure;
   let pressureElement = document.querySelector(".pressure");
   pressureElement.innerHTML = `Pressure: ${pressure}`;
-  console.log(response.data.main.humidity);
+
   let humidity = response.data.main.humidity;
   let humidityElement = document.querySelector(".humidity");
   humidityElement.innerHTML = `Humidity: ${humidity}%`;
-  console.log(response.data.wind.speed);
+
   let windSpeed = Math.round(response.data.wind.speed);
   let windElement = document.querySelector(".wind");
   windElement.innerHTML = `Wind Speed: ${windSpeed} km/h`;
-  console.log(response.data.weather.description);
+
   let description = response.data.weather[0].description;
   let descriptionElement = document.querySelector(".description");
   descriptionElement.innerHTML = `Description: ${description} `;
@@ -197,8 +196,6 @@ function getCurrentPosition(response) {
 }
 
 function findPosition(position) {
-  console.log(position.coords.latitude);
-  console.log(position.coords.longitude);
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let apiKey = "856ea507b57a7ec288937b5bb2dfbef2";
@@ -259,31 +256,29 @@ function displayForecast(response) {
 }
 
 function getCoords(coordinates) {
-  console.log(coordinates);
   let apiKey = "856ea507b57a7ec288937b5bb2dfbef2";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-  console.log(apiUrl);
+
   axios.get(apiUrl).then(displayForecast);
 }
 
 function showWeather(response) {
-  console.log(response.data.main.temp);
   let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector(".averageTemp");
   temperatureElement.innerHTML = `${temperature}°C`;
-  console.log(response.data.main.pressure);
+
   let pressure = response.data.main.pressure;
   let pressureElement = document.querySelector(".pressure");
   pressureElement.innerHTML = `Pressure: ${pressure}`;
-  console.log(response.data.main.humidity);
+
   let humidity = response.data.main.humidity;
   let humidityElement = document.querySelector(".humidity");
   humidityElement.innerHTML = `Humidity: ${humidity}%`;
-  console.log(response.data.wind.speed);
+
   let windSpeed = Math.round(response.data.wind.speed);
   let windElement = document.querySelector(".wind");
   windElement.innerHTML = `Wind Speed: ${windSpeed} km/h`;
-  console.log(response.data.weather.description);
+
   let description = response.data.weather[0].description;
   let descriptionElement = document.querySelector(".description");
   descriptionElement.innerHTML = `Description: ${description} `;
